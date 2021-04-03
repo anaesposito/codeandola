@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express() //inicializo express
-require('./db')
+const localEnv = require('./config/env');
+
+require('./config/db')
 
 app.use(express.urlencoded({extended: true})) 
 app.use('/', require('./routes')) //añade las rutas en "/"
@@ -14,6 +16,6 @@ app.use((err, req, res, next) => {
     res.status(status).send(message);
   });
 
-app.listen(process.env.PORT | 3001, () => { //arranca en el servidor del .env o el 3001
-    console.log(`Server is listening in port ${process.env.PORT | 3001}`)
+app.listen(localEnv.PORT || 3001, () => { //arranca en el servidor del .env o el 3001
+    console.log(`Server is listening in port ${localEnv.PORT || 3001}`)
 })
