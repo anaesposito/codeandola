@@ -9,7 +9,7 @@ const initialState = {
 //la accion que llega es la despachada desde el actionCreator
 //esta funcion Retorna el nuevo estado segun la accion realizada
 export default function reducer(state = initialState, action){
-    if(action.type == LOGEAR_USUARIO){
+    if(action.type === LOGEAR_USUARIO){
         return {
             user: action.payload
         }

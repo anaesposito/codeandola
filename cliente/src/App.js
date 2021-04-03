@@ -1,6 +1,7 @@
 import "./App.css";
 import {useSelector, useDispatch} from 'react-redux'
 import {login} from './redux/actionCreator'
+import Footer from './components/Footer/Footer'
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
@@ -47,7 +48,7 @@ function App() {
             Error 404
         </Route>
       </Switch>
-      Footer
+      <Footer/>
     </BrowserRouter>
 
   );
