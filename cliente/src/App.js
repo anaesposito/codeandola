@@ -40,6 +40,9 @@ function App() {
         <Route path="/backend" exact>
             Back
         </Route>
+        <Route path="/cualquiera" exact>
+            Probando PR
+        </Route>
         <Route>
             Error 404
         </Route>
