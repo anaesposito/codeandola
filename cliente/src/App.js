@@ -41,7 +41,7 @@ function App() {
             Back
         </Route>
         <Route path="/cualquiera" exact>
-            Probando PR
+            Probando PR....
         </Route>
         <Route>
             Error 404
