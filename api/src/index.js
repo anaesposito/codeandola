@@ -17,7 +17,7 @@ app.use('/users/', usersRouter);
 app.use('/posts/', postsRouter);
 app.use('/comments/', commentsRouter);
 
-//Configuración de front. REVISAR!
+//Configuración front. REVISAR!
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 

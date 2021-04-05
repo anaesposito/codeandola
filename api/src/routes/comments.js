@@ -1,8 +1,8 @@
 const { Router } = require('express')
 const router = Router()
 
-var comment_controller = require('../controllers/commentController');
+var commentController = require('../controllers/commentController');
 
-router.get('/index', comment_controller.comment_list);
+router.get('/index', commentController.commentList);
 
 module.exports = router
