@@ -5,6 +5,7 @@ import Footer from './components/Footer/Footer'
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
+
 function App() {
   //accedemos al estado de redux
   const user = useSelector(state => state)
