@@ -5,15 +5,16 @@ require('./config/db');
 const express = require('express');
 const app = express(); //inicializo express
 const localEnv = require('./config/env');
-const path = require('path');
 const morgan = require('morgan');
+
+//Morgan: captura solicitudes HTTP.
+app.use(express.urlencoded({extended: false}));
+app.use(express.json())
+app.use(morgan('dev'));
+
 
 //Importamos todas las rutas para que quede codigo limpio
 app.use('/', require('./routes/index'));
-
-//Morgan: captura solicitudes HTTP.
-app.use(morgan('dev'));
-app.use(express.urlencoded({extended: false}));
 
 //muestra en consola los errores
 app.use((err, req, res, next) => { 

@@ -1,4 +1,4 @@
-var Comment = require('../models/comment');
+const Comment = require('../models/comment');
 
 exports.commentList = async (req, res) => {
     const comments = await Comment.find();

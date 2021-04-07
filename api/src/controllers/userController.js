@@ -1,15 +1,22 @@
-var User = require('../models/user');
+const User = require('../models/user');
 
-exports.userList = async (req, res) => {
+/* exports.userList = async (req, res) => {
     const users = await User.find();
     res.render('users/index', {
         users
     });
-};
+}; */
 
+module.exports = {
+    read: async () => {
+        return User.find((err, users) => {
+            if (err) return err
+            return users
+        })
+    },
 
-exports.userCreate = async (req, res) => {
-    const user = new User(req.body);
-    await user.save();
-    res.redirect('index');
-};
+    create: async user => {
+        const newUser = new User(user)
+        await newUser.save()
+    }
+}
