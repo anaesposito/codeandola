@@ -1,12 +1,5 @@
 const User = require('../models/user');
 
-/* exports.userList = async (req, res) => {
-    const users = await User.find();
-    res.render('users/index', {
-        users
-    });
-}; */
-
 module.exports = {
     read: () => {
         return User.find((err, users) => {
