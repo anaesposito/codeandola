@@ -8,18 +8,8 @@ const localEnv = require('./config/env');
 const path = require('path');
 const morgan = require('morgan');
 
-//Importamos rutas de cada entidad
-const usersRouter = require('./routes/users');
-const postsRouter = require('./routes/posts');
-const commentsRouter = require('./routes/comments');
-
-app.use('/users/', usersRouter);
-app.use('/posts/', postsRouter);
-app.use('/comments/', commentsRouter);
-
-//Configuración front. REVISAR!
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+//Importamos todas las rutas para que quede codigo limpio
+app.use('/', require('./routes/index'));
 
 //Morgan: captura solicitudes HTTP.
 app.use(morgan('dev'));
@@ -35,5 +25,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(localEnv.PORT || 3001, () => { //arranca en el servidor del .env o el 3001
-    console.log(`Server is listening in port ${localEnv.PORT}`);
+    console.log(`Server is listening in port ${localEnv.PORT || 3001}`);
 });
