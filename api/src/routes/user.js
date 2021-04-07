@@ -3,9 +3,10 @@ const router = Router()
 
 const userController = require('../controllers/userController');
 
-router.get('/', async (req, res) => {
-    const users = await userController.read()
-    res.send(users)
+router.get('/',  (req, res) => {
+    return userController.read()
+    .then(users => res.send(users))
+    .catch(err => res.status(400).send(err.message))
 });
 
 router.post('/', (req, res) => {
@@ -17,9 +18,9 @@ router.post('/', (req, res) => {
     if(!regex.test(email)){
         return res.status(400).send('invalid email')
     }
-    userController.create(req.body)
-    .then(() => res.sendStatus(200))
-    .catch((err) =>  res.send(err._message))
+    return userController.create(req.body)
+    .then((r) => res.status(200).send(r))
+    .catch((err) =>  res.status(400).send(err.message))
 });
 
 module.exports = router

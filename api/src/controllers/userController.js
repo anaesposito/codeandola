@@ -8,15 +8,16 @@ const User = require('../models/user');
 }; */
 
 module.exports = {
-    read: async () => {
+    read: () => {
         return User.find((err, users) => {
-            if (err) return err
-            return users
+            return err ? err : users
         })
+        .then(r => r)
     },
 
-    create: async user => {
+    create: user => {
         const newUser = new User(user)
-        await newUser.save()
+        return newUser.save()
+        .then(r => r)
     }
 }
