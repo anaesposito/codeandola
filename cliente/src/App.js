@@ -5,6 +5,7 @@ import {login} from './redux/actionCreator'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 // pages:
+import Signup from './pages/Signup'
 
 function App() {
   //accedemos al estado de redux
@@ -28,7 +29,7 @@ function App() {
           </div>
         </Route>
         <Route path="/signup" exact>
-            
+            <Signup/>
         </Route>
         <Route path="/login" exact>
             
