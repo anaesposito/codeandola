@@ -13,7 +13,7 @@ import "./NavBar.scss"
 const ID = 'NavBar';
 
 function NavBar(props) {
-console.log(props)
+
     const [ isOpen, setIsOpen ] = useState(false);
 
     const handleMenu = () => setIsOpen(!isOpen);
