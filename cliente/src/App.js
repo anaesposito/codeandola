@@ -4,6 +4,8 @@ import {login} from './redux/actionCreator'
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
+// pages:
+
 function App() {
   //accedemos al estado de redux
   const user = useSelector(state => state)
@@ -24,6 +26,12 @@ function App() {
             <button onClick={handleUser}>INGRESAR</button>
             <button onClick={() => console.log(user)}>MOSTRAR EN CONSOLA</button>
           </div>
+        </Route>
+        <Route path="/signup" exact>
+            
+        </Route>
+        <Route path="/login" exact>
+            
         </Route>
         <Route path="/about" exact>
             About
