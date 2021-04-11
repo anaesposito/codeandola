@@ -1,11 +1,19 @@
 import "./App.css";
-import {useSelector, useDispatch} from 'react-redux'
-import {login} from './redux/actionCreator'
+
+// Importaciones externas
+import { useSelector, useDispatch } from 'react-redux'
+
+//Importaciones Internas
+import { login } from './redux/actionCreator'
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 // pages:
 import Signup from './pages/Signup'
+
+//Componentes
+import NavBar from "./components/NavBar"
+
 
 function App() {
   //accedemos al estado de redux
@@ -19,7 +27,7 @@ function App() {
 
   return (
     <BrowserRouter>
-        NavBar
+        <NavBar />
       <Switch>
         <Route path="/" exact>
           <div className="App">
@@ -43,14 +51,11 @@ function App() {
         <Route path="/contact" exact>
             Contacto
         </Route>
-        <Route path="/frontend" exact>
-            Front
+        <Route path="/fq" exact>
+            Preguntas frecuentes
         </Route>
-        <Route path="/backend" exact>
-            Back
-        </Route>
-        <Route path="/cualquiera" exact>
-            Probando PR....
+        <Route path="/tc" exact>
+            Terminos y condiciones
         </Route>
         <Route>
             Error 404
