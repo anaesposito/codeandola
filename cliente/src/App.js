@@ -1,70 +1,69 @@
 import "./App.css";
 
 // Importaciones externas
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from "react-redux";
 
 //Importaciones Internas
-import { login } from './redux/actionCreator'
+import { login } from "./redux/actionCreator";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 // pages:
-import Signup from './pages/Signup'
-import Login from './pages/Login'
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
 //Componentes
-import NavBar from "./components/NavBar"
-
+import NavBar from "./components/NavBar";
+import ForumCard from "./components/ForumCard/ForumCard";
 
 function App() {
   //accedemos al estado de redux
-  const user = useSelector(state => state)
+  const user = useSelector((state) => state);
   //funcion de redux para que las funciones las tome el middleware y vayan al store cuando se ejecuten
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleUser = () => {
-    dispatch(login('email','pass'))
-  }
+    dispatch(login("email", "pass"));
+  };
 
   return (
     <BrowserRouter>
-        <NavBar />
+      <NavBar />
       <Switch>
         <Route path="/" exact>
           <div className="App">
             <h1>CODEANDOLA</h1>
             <button onClick={handleUser}>INGRESAR</button>
-            <button onClick={() => console.log(user)}>MOSTRAR EN CONSOLA</button>
+            <button onClick={() => console.log(user)}>
+              MOSTRAR EN CONSOLA
+            </button>
           </div>
         </Route>
         <Route path="/signup" exact>
-            <Signup/>
+          <Signup />
         </Route>
         <Route path="/login" exact>
-            <Login/>
+          <Login />
         </Route>
         <Route path="/about" exact>
-            About
+          About
         </Route>
         <Route path="/forum" exact>
-            Foro
+          <ForumCard />
         </Route>
         <Route path="/contact" exact>
-            Contacto
+          Contacto
         </Route>
         <Route path="/fq" exact>
-            Preguntas frecuentes
+          Preguntas frecuentes
         </Route>
         <Route path="/tc" exact>
-            Terminos y condiciones
+          Terminos y condiciones
         </Route>
-        <Route>
-            Error 404
-        </Route>
+        <Route>Error 404</Route>
       </Switch>
       Footer
     </BrowserRouter>
-
   );
 }
 
