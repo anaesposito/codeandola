@@ -20,7 +20,7 @@ const UserSchema = new Schema({
             }
             return true;
             },
-            message: props => 'Correo electrónico en uso.'
+            message: props => 'this email is in use'
         },
         required: true
     },

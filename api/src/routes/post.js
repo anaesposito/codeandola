@@ -1,7 +1,7 @@
 const { Router } = require('express')
 const router = Router()
 
-var postController = require('../controllers/postController');
+const postController = require('../controllers/postController');
 
 router.get('/index', postController.postList);
 
